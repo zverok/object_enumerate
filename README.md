@@ -24,7 +24,7 @@ I still **strongly believe** the method should be a part of language core, so th
 ## Examples of usage
 
 ```ruby
-gem 'object_enumerate', require: true
+require 'object_enumerate'
 
 # Most idiomatic "infinite sequence" possible:
 p 1.enumerate(&:succ).take(5)
@@ -57,8 +57,8 @@ Octokit.stargazers('rails/rails')
 # and pagination. So now we can do this:
 p Octokit.last_response
   .enumerate { |response| response.rels[:next].get } # pagination: `get` fetches next Response
-  .first(3) # take just 3 pages of stargazers
-  .flat_map(&:data) # data is parsed response content (stargazers themselves)
+  .first(3)                                          # take just 3 pages of stargazers
+  .flat_map(&:data)                                  # `data` is parsed response content (stargazers themselves)
   .map { |h| h[:login] }
 # => ["wycats", "brynary", "macournoyer", "topfunky", "tomtt", "jamesgolick", ...
 ```
