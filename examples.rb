@@ -1,9 +1,16 @@
 require_relative 'lib/object_enumerate'
 require 'pp'
 
+# Most idiomatic "infinite sequence" possible:
 p 1.enumerate(&:succ).take(5)
 
+# Easy Fibonacci
 p [0, 1].enumerate { |f0, f1| [f1, f0 + f1] }.take(10).map(&:first)
+
+require 'date'
+
+# Find next Tuesday
+Date.today.enumerate(&:succ).detect { |d| d.wday == 2 }
 
 require 'nokogiri'
 require 'open-uri'

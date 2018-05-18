@@ -34,6 +34,11 @@ p 1.enumerate(&:succ).take(5)
 p [0, 1].enumerate { |f0, f1| [f1, f0 + f1] }.take(10).map(&:first)
 #=> [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 
+# Find next Tuesday
+Date.today.enumerate(&:succ).detect { |d| d.wday == 2 }
+# => #<Date: 2018-05-22 ((2458261j,0s,0n),+0s,2299161j)>
+
+
 # Tree navigation
 # ---------------
 
