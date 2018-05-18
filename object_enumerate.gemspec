@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
 
   s.summary = 'Object#enumerate: Simple infinite enumerators'
   s.description = <<-EOF
+    This is just a showcase gem to support language core proposal: https://bugs.ruby-lang.org/issues/14423
   EOF
   s.licenses = ['MIT']
 
