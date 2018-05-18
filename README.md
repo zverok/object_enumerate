@@ -3,6 +3,7 @@
 This is a small (exactly 1 method) gem to showcase my proposal to core Ruby.
 
 [The proposal at Ruby tracker](https://bugs.ruby-lang.org/issues/14423).
+
 [Discussion log](https://docs.google.com/document/d/e/2PACX-1vR2LdBE87iEcEsVuUUr0G2L6LxSPeGMg_0oeHeh0HYmX36iIa9zkWYlFHilH5D4I_RBJpQnr09yOZaE/pub) from developers meeting:
 
 > Naruse: interesting proposal
@@ -23,6 +24,8 @@ I still **strongly believe** the method should be a part of language core, so th
 
 ## Examples of usage
 
+`Object#enumerate` can provide idiomatic replacement for a lot of `while` and `loop` constructs, the same way `each` replaces `for`.
+
 ```ruby
 require 'object_enumerate'
 
@@ -35,13 +38,13 @@ p [0, 1].enumerate { |f0, f1| [f1, f0 + f1] }.take(10).map(&:first)
 #=> [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 
 # Find next Tuesday
+require 'date'
 Date.today.enumerate(&:succ).detect { |d| d.wday == 2 }
 # => #<Date: 2018-05-22 ((2458261j,0s,0n),+0s,2299161j)>
 
 
 # Tree navigation
 # ---------------
-
 require 'nokogiri'
 require 'open-uri'
 
