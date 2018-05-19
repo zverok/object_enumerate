@@ -82,3 +82,16 @@ Enumerator.from(1, &:succ)
 ```
 
 I personally don't believe any of those look clear enough, so, however risky adding new method to `Object` could look, I'd vote for it.
+
+## UPD: Naming
+
+_I received several responses about the name not being "obvious enough". It was not expected, I am sorry for not providing the reasons about name earlier._
+
+The reasons behind the name `#enumerate`:
+
+* Core method names should be short and mnemonic, not long and descriptive. (Otherwise, we'd have `yield_each` instead of `each`, `yield_each_and_collect` instead of `map`, `parallel_each` instead of `zip` and don't even get me started on `reduce`). It is if you can't guess what core method _exactly_ does _just_ from the name, more important to have it easily remembered and associative.
+* Code constructs using the name should be spellable in your head. I pronounce it "1: enumerate succeeding numbers", "last result: enumerate all next" and so on. Judge yourself.
+* Concept is present in other languages and frequently named `iterate` (for example, Clojure and Scala). As we call our iterators `Enumerator`, it is logical to call the method `enumerate`.
+* Once you got it, the name is hard to confuse with anything (the only other slightly similar name in core is `#to_enum`, but it is typically used in a very far context).
+
+The only other reasonable option I can think about is `deduce`, as an antonym for `reduce` which makes the opposite thing. Elixir follows this way, calling the methods `fold` (for our `reduce`) and `unfold` (for method proposed).
