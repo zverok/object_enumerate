@@ -18,6 +18,8 @@ So, considering Shyouhei's last remark, I am providing this gem for interested p
 
 I still **strongly believe** the method should be a part of language core, so the gem is made as a proof-of-concept, to make experimentation with an idea simple.
 
+**UPD: I thought about alternative proposal, [`Enumerator#generate`](https://github.com/zverok/enumerator_generate), which seems less radical and more powerful at the same time.**
+
 ## Synopsys
 
 `Object#enumerate` takes a block and returns an instance of infinite `Enumerator`, where each next element is made by applying the block to the previous.
